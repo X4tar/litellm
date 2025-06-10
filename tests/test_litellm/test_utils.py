@@ -248,6 +248,13 @@ def test_all_model_configs():
         drop_params=False,
     ) == {"max_tokens": 10}
 
+    assert (
+        "thinking"
+        in VertexAIAnthropicConfig().get_supported_openai_params(
+            model="vertex_ai/claude-sonnet-4@20250514"
+        )
+    )
+
     from litellm.llms.gemini.chat.transformation import GoogleAIStudioGeminiConfig
     from litellm.llms.vertex_ai.gemini.vertex_and_google_ai_studio_gemini import (
         VertexGeminiConfig,
